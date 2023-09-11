@@ -4,6 +4,7 @@ checklist = list()
 #print(checklist)
 #checklist.append('Orange')
 #print(checklist)
+
 def create(item): #create
     checklist.append(item)
 def select(function_code):
@@ -20,9 +21,13 @@ def select(function_code):
     #print all items
     elif function_code == "P":
         list_all_items()
+    elif function_code == "Q":
+        return False
     #if all else fails
     else:
         print("Unkown Option")
+    return True
+    
     
 
 def mark_completed(index):
@@ -49,30 +54,24 @@ def list_all_items():
     #   print(str(index) + list_item)
         print("{} {}".format(index, list_item))
     index += 1 #add one to index for each item
+def user_input(prompt):
+    #prompt the user for input
+    user_input = input(prompt)
+    return user_input
 def test():
-
-    create ("purple socks")
-    create ("red cloak")
-    
-    print (read(0))
-    print (read(1))
-#call other funcs
-    mark_completed(1)
-
-    destroy(1)
-
-    list_all_items()
-  #  update(0, "purple socks")
-  #func code
-    select("C")
-
-    list_all_items()
-
-    select("R")
-
-    list_all_items()
+    user_value = user_input("Please enter a value")
+    print(user_value)
 
 test()
+
+
+
+running = True
+while running:
+    selection = user_input(
+        "Press C to add to list, R to Read from list, P to display list, and Q to quit")
+    running = select(selection)
+
     
 #checklist = ['Blue', 'Orange']
 #checklist[1] = 'Cats' #assigning Cats to the number of 1 within the array
